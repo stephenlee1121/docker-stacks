@@ -14,5 +14,10 @@ RUN apt-get -y update && \
 
 RUN conda install --quiet --yes \
     'nltk' \
-    'guess_language' \
-    'language_check'
+    'guess_language-spirit' \
+    'language_check' && \
+    conda remove --quiet --yes --force qt pyqt && \
+    conda clean -tipsy && \
+    # Activate ipywidgets extension in the environment that runs the notebook server
+    jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
+    fix-permissions $CONDA_DIR
