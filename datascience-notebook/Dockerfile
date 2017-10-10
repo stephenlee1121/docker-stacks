@@ -13,5 +13,6 @@ RUN apt-get -y update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN pip install guess_language-spirit \
-		nltk
+		nltk \
+		language_check
         
